@@ -21,7 +21,7 @@ The key to supporting both module systems lies in the package.json configuration
 {
   "main": "src/index.cjs",    // For CommonJS
   "module": "src/index.mjs",  // For ESM
-  "type": "module",           // Default to ESM
+  "type": "module",           // Default to ESM, It is set to module. Experiment with 'commonjs' and removing this line.
   "exports": {
     ".": {
       "require": "./src/index.cjs",
