@@ -42,11 +42,35 @@ I learned that you need separate implementations for CJS and ESM:
 - **CJS files (.cjs)**: Use `require()` and `module.exports`
 - **ESM files (.mjs)**: Use `import/export` statements
 
+Initially, I only had one index file. However, to properly support both CommonJS (CJS) and ECMAScript Modules (ESM),
+I realized I needed two separate entry points:
+- `index.cjs` for CJS
+- `index.mjs` for ESM
+
+To share utility functions, I repeated this approach and created:
+- `utils.cjs` for CJS
+- `utils.mjs` for ESM
+
+This way, each environment can import the correct version without conflicts.
+
 ### 4. Key Learnings
 
 1. **Separate Implementations**: Functions used in CJS and MJS files need separate proper export definitions and essentially become two different versions.
 2. **Context Awareness**: When writing tests, you need to be aware of which module system you're using.
 3. **Dynamic Imports**: In ESM context, you can use dynamic imports to load modules.
+
+### Additional Details: ESM vs. CJS
+ESM (ECMAScript Modules):
+- Uses `import` and `export` statements
+- Fully supports async imports
+- Relies on the `type` field in package.json or `.mjs` extension
+
+CJS (CommonJS):
+- Uses `require` and `module.exports`
+- Synchronous module loading
+- Remains supported in older Node.js environments
+
+Having separate files ensures complete compatibility with both systems while using the same underlying logic.
 
 ### 5. Testing Strategy
 
