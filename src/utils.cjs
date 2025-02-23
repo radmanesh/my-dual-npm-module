@@ -1,5 +1,5 @@
 function testFunction() {
-  console.log('Hello from testModule');
+  console.log('Hello from testFunction in utils.cjs');
   return true;
 }
 

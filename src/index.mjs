@@ -2,7 +2,7 @@
 import { readFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
-import { testFunction } from './utils.js';
+import { testFunction } from './utils.mjs';
 
 // A small trick to read from package.json, if you need it
 const __filename = fileURLToPath(import.meta.url);

@@ -22,7 +22,7 @@ async function testESM() {
   assert(resultESM.includes('Bob'), 'ESM greeting should mention Bob');
   console.log('✅ greetESM test passed.');
 
-  const a = await testFunction();
+  const a = testFunction();
   assert(a, true);
   console.log('✅ testFunction test passed.');
 })();

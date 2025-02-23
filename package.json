@@ -14,14 +14,20 @@
   "author": "Arman Radmanesh",
   "main": "src/index.cjs",
   "module": "src/index.mjs",
-  "type": "commonjs",
+  "type": "module",
   "exports": {
-    "require": "./src/index.cjs",
-    "import": "./src/index.mjs"
+    ".": {
+      "require": "./src/index.cjs",
+      "import": "./src/index.mjs"
+    },
+    "./utils": {
+      "require": "./src/utils.cjs",
+      "import": "./src/utils.mjs"
+    }
   },
   "scripts": {
-    "test": "node ./test/index.test.js",
-    "test2": "node ./test/index.test2.js"
+    "test": "node ./test/index.test.cjs",
+    "test2": "node ./test/index.test.mjs"
   },
   "devDependencies": {
     "assert": "^2.1.0"
